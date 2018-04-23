@@ -66,7 +66,7 @@ func init() {
 	}()
 }
 
-// Set key -> value to buffer, when timeout(nanosecond) remove it.
+// Set key -> value to buffer, when timeout(nanosecond) remove it. The timeout use time package's constant suggestively.
 func Set(key, value interface{}, timeout time.Duration) {
 	msgChan <- &setMsg{
 		key:     key,
@@ -87,5 +87,5 @@ func Get(key interface{}) interface{} {
 func Close() {
 	close(msgChan)
 	close(returnChan)
-	buf = nil 
+	buf = nil
 }
