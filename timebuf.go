@@ -87,4 +87,5 @@ func Get(key interface{}) interface{} {
 func Close() {
 	close(msgChan)
 	close(returnChan)
+	buf = nil 
 }
