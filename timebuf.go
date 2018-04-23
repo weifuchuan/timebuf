@@ -58,10 +58,8 @@ func init() {
 				}
 			case *removeMsg:
 				box, has := buf[m.key]
-				if has {
-					if m.id == box.id {
-						delete(buf, m.key)
-					}
+				if has && m.id == box.id {
+					delete(buf, m.key)
 				}
 			}
 		}
